@@ -45,7 +45,7 @@ public class BatchController {
 	}
 	
 	@PostMapping("batches")
-	public ResponseEntity<BatchDetails> getCount(@RequestBody BatchDetails batch) {
+	public ResponseEntity<BatchDetails> addBatches(@RequestBody BatchDetails batch) {
 		BatchDetails response = batchService.addBatch(batch);
 		return new ResponseEntity<BatchDetails>(response, HttpStatus.OK);
 	}
