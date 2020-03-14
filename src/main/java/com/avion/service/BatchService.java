@@ -18,4 +18,20 @@ public class BatchService {
 		return batchDao.findAll();
 	}
 
+	public BatchDetails getBatchDetailsById(int id) {
+		return batchDao.findByBatchId(id);
+	}
+
+	public int getCountForVal(int val) {
+		return batchDao.countByBatchIdGreaterThan(val);
+	}
+	
+	public long getAllCount() {
+		return batchDao.count();
+	}
+	
+	public BatchDetails addBatch(BatchDetails batch) {
+		return batchDao.save(batch);
+	}
+
 }

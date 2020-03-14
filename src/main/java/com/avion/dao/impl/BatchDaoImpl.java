@@ -7,11 +7,11 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.avion.dao.BatchDao;
+import com.avion.dao.BatchCustomDao;
 import com.avion.model.BatchDetails;
 
 @Repository
-public class BatchDaoImpl implements BatchDao {
+public class BatchDaoImpl implements BatchCustomDao {
 
 	@Autowired
 	EntityManager entityManager;
