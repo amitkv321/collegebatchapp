@@ -3,6 +3,8 @@ package com.avion.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +19,15 @@ import com.avion.service.BatchService;
 
 @RestController
 @RequestMapping("data")
+@RefreshScope
 public class BatchController {
 	
 	@Autowired
 	BatchService batchService;
 
+	@Value("${college.name}")
+	String collegeName;
+	
 	@GetMapping("batches")
 	public List<?> getAllBatchDetails() {
 		return batchService.getCompleteBatchDetails();
@@ -42,5 +48,10 @@ public class BatchController {
 	public ResponseEntity<BatchDetails> getCount(@RequestBody BatchDetails batch) {
 		BatchDetails response = batchService.addBatch(batch);
 		return new ResponseEntity<BatchDetails>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("testconfig")
+	public String testConfig() {
+		return collegeName;
 	}
 }
