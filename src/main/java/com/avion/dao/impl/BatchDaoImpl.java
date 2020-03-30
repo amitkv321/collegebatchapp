@@ -3,8 +3,8 @@ package com.avion.dao.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.avion.dao.BatchCustomDao;
@@ -13,7 +13,7 @@ import com.avion.model.BatchDetails;
 @Repository
 public class BatchDaoImpl implements BatchCustomDao {
 
-	@Autowired
+	@PersistenceContext
 	EntityManager entityManager;
 	
 	@Override
